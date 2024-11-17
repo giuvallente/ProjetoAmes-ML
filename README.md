@@ -63,3 +63,36 @@ Além disso, a coluna `SALES.PRICE` foi transformada em logaritmo na base 10.
 
 Por fim, a coluna `LOT.FRONTAGE` foi preenchida com a média e a coluna `MAS.VNR.AREA` foi preenchida com zero, já que os valores faltantes representam as casas que não possuem uma área do revestimento de alvenaria na fachada da casa.
 
+### 03. Análise dos Modelos de Predição do Valor de Venda das Casas do Dataset Ames
+
+O notebook `03-ModelosPredicao.ipynb` contém dois modelos de predição do valor de venda das casas do dataset Ames, o modelo `Random Forest` e o modelo `Ridge`.
+
+O primeiro passo para a construção dos modelos foi identificar todas as variáveis categóricas. Assim, as variáveis categóricas nominais - categóricas sem ordem entre as categoria - foram transformadas em variáveis dummy, ou seja, cada categoria foi transformada em uma coluna binária. Já as variáveis categóricas ordinais - categóricas com ordem entre as categorias - foram transformadas em variáveis numéricas, com as categorias recebendo valores inteiros de acordo com a ordem.
+
+Em seguida, realizamos a divisão do dataset em treino e teste, com 75% dos dados sendo utilizados para treino e 25% para teste.
+
+Então, podemos iniciar a construção dos modelos. Para ambos os modelos realizamos o ajuste dos hiperparâmetros utilizando a técnica de `Grid Search`, que consiste em testar todas as combinações possíveis de hiperparâmetros e escolher a combinação que resulta no melhor desempenho do modelo, além de evitar o overfitting.	
+
+Assim, para o modelo `Random Forest` ajustamos os hiperparâmetros `n_estimators` e `max_depth`. Já para o modelo `Ridge` ajustamos o hiperparâmetro `alpha`.
+
+Desta forma, escolhemos o modelo que obteve como `scoring` o maior valor de `neg_mean_squared_error`, visto que o objetivo do modelo é minimizar o erro quadrático médio (MSE). Assim, o modelo `Ridge` com o hiparâmetro `alpha` igual a 100 foi o escolhido.
+
+Por fim, treinamos o modelo escolhido com todos os dados de treino e realizamos a predição do valor de venda das casas do dataset Ames, o que nos resultou em um erro quadrático médio de 0.0038.
+
+### Conclusões Finais
+
+O modelo de regressão Ridge foi o escolhido para a predição do valor de venda das casas do dataset Ames, com um erro quadrático médio de 0.0038. 
+
+Assim, o modelo mostra um desempenho razoavelmente bom. O MSE indica o quão distante, em média, as previsões do modelo estão dos valores reais, e um valor mais baixo sugere um modelo mais preciso.
+
+Desta forma, podemos trazer como consequências do desempenho do modelo final para a aplicação de negócios o fato das previsões de preço poderem estar relativamente próximas dos valores reais, o que pode ser útil para agentes imobiliários, avaliadores ou investidores ao tentar estimar o valor de venda das casas. Contudo, um MSE de 0.0038 indica que o modelo tem uma tendência a errar um pouco, o que pode levar a subestimações ou superestimações do preço de venda das casas. Em negócios, isso pode afetar a confiança dos clientes ou investidores, além de afetar a estratégia de precificação.
+
+Por fim, podemos também obter uma maior noção acerca de quais variáveis trazem um maior impacto no valor de venda das casas. Assim, o nosso modelo escolhido revela que a variável `OVERALL.QUAL` é a que mais impacta no valor de venda das casas, seguida pelas variáveis `GR.LIV.AREA` e `OVERALL.COND`. Além disso, também podemos colocar a prova, por exemplo, que quanto mais velha for a casa, menor será o seu valor de venda.
+
+### Autores
+
+Giúlia Gomes Vallente <br>
+Julia Almeida Silva <br>
+
+
+
