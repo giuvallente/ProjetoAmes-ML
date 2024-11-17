@@ -51,7 +51,7 @@ A primeira forma - eliminar colunas que contêm baixa variação - foi utilizada
 
 A segunda forma - eliminar colunas que contêm baixa adesão de respostas - foi utilizada para a coluna `POOL.QC`.
 
-Já a terceira forma - atribuir todos os valores ausentes a uma categoria recém-criada chamada Desconhecido - foi utilizada para a coluna `FENCE.
+Já a terceira forma - atribuir todos os valores ausentes a uma categoria recém-criada chamada Desconhecido - foi utilizada para a coluna `FENCE`.
 
 Por fim, as colunas `GARAGE.FINISH`, `BSMT.COND`, `BSMT.QUAL`, `BSMT.EXPOSURE`, `BSMT.FIN.TYPE.1` e `BSMT.FIN.TYPE.2` foram transformadas em colunas nominais, com a categoria `NO GARAGE` para casas sem garagem e `NA` para as casas que não obtivémos resposta acerca do porão ou da existência deste.
 
